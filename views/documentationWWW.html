@@ -1,0 +1,328 @@
+{% extends 'layout.html' %} 
+{% set mainClass = "documentation-www" %}
+{% block content %}
+
+<h1>Dokumentation WWW</h1>
+
+<div class="highlight">
+    <h2>Logindaten</h2>
+    <p>Da Nutzer nicht von außen registriert werden können, werden folgende Daten zum Login benötigt:</p>
+</div>
+<div>
+    <h2>Projekt und Funktionsumfang</h2>
+    <p>
+        Im Rahmen der Hausarbeit für WWW-Programmierung soll eine Online Präsenz für Rosalinde Sonnenschein, einen kleinen Mode- und Dekoladen aus Nastätten, 
+        einer Kleinstadt zwischen Wiesbaden und Koblenz, erstellt werden. Es geht hierbei nicht um einen Online Shop, sondern eher eine öffentliche Bestandsanzeige für Kunden. 
+        Da es sich um einen vor kurzem neu geöffneten Laden handelt, der in der Regel lediglich Einzelstücke verkauft, war von der Besitzerin keine Möglichkeit der Bestellung 
+        von Waren über die Website gewünscht. 
+    </p>
+    
+    <h3>Informations Outlet</h3>
+    <p>
+        Die Online Präsenz soll dazu dienen, den Informationsfluss, der aktuell über Facebook, Instagram und WhatsApp Stories stattfindet, zu sammeln und zu 
+        strukturieren, d.h. ein News Outlet auf eigener Seite zu haben, wo über Rabatte, Aktionen, veränderte Öffnungzeiten o.Ä. informiert werden kann. 
+    </p>
+    
+    <h3>Bestandsdarstellung</h3>
+    <p>
+        Die im Laden verfügbaren Artikel sollen auf der Website präsentiert werden, damit Kunden diese online anschauen und Fragen stellen 
+        können. Der Verkauf erfolgt immer vor Ort, aber Reservierung ist durch Kontaktaufnahme ggf. möglich. 
+    </p>
+    
+    <h3>Kundeninteraktion</h3>
+    <p>
+        Auch wenn Produkte nicht direkt über die Website eingekauft werden können, soll es Kunden möglich sein, einzelne Artikel zu kommentieren  bzw. 
+        direkt auf der entsprechenden Seite Fragen zu stellen oder Meinungen zu Produkten zu posten. Das Verfassen von Kommentaren soll dabei anonym und 
+        ohne Anmeldung erfolgen, um die Kontaktaufnahme für die Kunden möglichst attraktiv und einfach zu gestalten.
+    </p>
+    
+    <h3>Kontaktinformationen</h3>
+    <p>
+        Auf der Website sollen immer aktuelle Daten zur Kontaktaufnahme (Email, Telfonnummer usw.) und die Öffnungszeiten präsent sein, damit Kunden sich 
+        einfach über Produkte informieren oder zur presönlichen Ansicht den Laden besuchen können. 
+    </p>
+    
+    <h3>Interface</h3>
+    <p>
+        Das Interface sollte nicht nur ansprechend und einladend für Kunden sein, sonder das Einstellen und Bearbeiten von Inhalten zur Instandhaltung der 
+        Seite sollte einfach und eindeutig sein, damit das Arbeiten auf der Online Plattform der Besitzerin keine Probleme bereitet und möglichst wenig 
+        Zeit dafür aufgewendet werden muss, die Funktionen zu verstehen. 
+    </p>
+    
+    <h3>Nutzerverwaltung</h3>
+    <p>
+        Eine Nutzerverwaltung soll in Voraussicht integriert werden. Aktuell sind keine weiteren Angestellten bei Rosalinde Sonnenschein beschäftigt, aber um 
+        einfaches Management zu gewährleisten, soll es der Besitzerin trotzdem möglich sein, verschiedene Nutzerkonten zu erstellen, um z.B. Hilfskräften 
+        mit eingeschränkten Zugriffsrechten die Informationsverteilung und Kundeninteraktionauf der Seite zu überlassen, während Artikelbearbeitung nicht 
+        verfügbar ist. 
+    </p>
+    <p>
+        Wir haben uns hier dafür entschieden, die Nutzerverwaltung nicht direkt mit der Darstellung des Teams auf der Über Uns Seite zu verlinken. Zum einen 
+        macht es ein schnelles Einrichten von Nutzerzugängen schwierig, weil dann auch immer ein Bild mit hochgeladen werden müsste. Außerdem ist ein 
+        Integrieren von z.B. kurzzeitigen Praktikanten nicht sonderlich sinnvoll, wenn diese beispielsweise nur zwei Wochen den Social Media Betrieb 
+        übernehmen. Daher sind diese Bereiche voneinander getrennt und unabhängig.
+    </p>
+</div>
+    
+    
+    
+<div>
+    <h2>Konzept</h2>
+    <h3>Inspiration</h3>
+    <p>
+        Wir hatten keine direkte Vorlage, da wir keine Beispiele für unser Anwendungsart gefunden haben. Zur Recherche für die Produkt-Seite haben wir uns besonders 
+        Shops mit kleinem Sortiment angeschaut, so z.B. Lucy&Yak. Auch der fröhlich und bunte Stil passt gut zum Image von Rosalinde Sonnenschein.
+    </p>
+    <img class="small" src="/images/documentation/lucy&yak_logo.jpg" alt="Lucy&Yak Logo" width="200px" height="auto">
+    <a href="https://lucyandyak.com">Lucy&Yak</a>
+    <p>
+        Da Online Shops in der Regel keinen Newsfeed haben, haben wir dafür seperat Eindrücke gesammelt. Dabei sind allerdings keine besonders treffenden Beispiele 
+        aufgetaucht. Wir haben zu Analyse aber alle großen Social Media Sites wie Twitter, Facebook usw. angeschaut, um Konventionen im Timeline Aufbau zu 
+        erkennen. 
+    </p>
+    
+    <h3>CSS</h3>
+    <p>
+        Da wir diese Hausarbeit nicht nur für die Abgabe in WWW-Programmierung sondern auch für den Kurs Frontend Design leisten, ist der Prozess der Frontend Bearbeitung 
+        separat dokumentiert. Die Frontend Dokumentation ist ebenfalls im Footer verlinkt. 
+    </p>
+</div>
+    
+    
+    
+<div>
+    <h2>Struktur</h2>
+    <p>
+        Bei Erstellung der Website wurde zunächst auf Funktionalität geachtet. Zunächst wurde die Datenbank erstellt, dann ein Zugriff auf diese 
+        Datenbank ermöglicht, Anzeige von Inhalten in der Datenbank, Hinzufügen, Löschen und Bearbeiten von Inhalten und schließlich Login und 
+        Authentifizierung. Erst nachdem die Website komplett funktional war, wurde sie noch ästhetisch bearbeitet (CSS). Genau Abläufe und 
+        vorgenommene Schritte können dem Projekttagebuch entnommen werden.
+    </p>
+    <h3>Informationsarchitektur</h3>
+    <p>
+        Zur Strukturierung der Inhalte und Funktionen haben wir zunächst eine Informationsarchitektur angelegt. Dabei sind die Inhalte unterteilt in vor 
+        und nach der Anmeldung. Der Reiter "Nutzer" hat nur Inhalte für Adminzugriff und ist demnach auch nur für diese sichtbar. Die Hauptteilung 
+        erfolgt in drei verschiedenen Seiten, "Neues", "Produkte" und "Kontakt", die alle über die Top Navigation erreichbar sein sollen, um 
+        einfaches und schnelles Umschalten zu gewährleisten. Die Login-Seite ist über den Footer aufrufbar, weil sie für einen Großteil der Nutzer 
+        kein Feature ist und daher nicht visuell im Vordergrund stehen muss. 
+    </p>
+    <img src="/images/documentation/information-architecture.png" alt="Informationsarchitektur" width="1000px" height="auto">
+    
+    <h3>Datenbankdiagramm</h3>
+    <p>
+        Das Datenbankdiagramm wie es hier dargestellt ist, ist die finale Version. In der Datenbank wurden mehrere Änderungen vorgenommen, die im 
+        Projekttagebuch illustriert und erklärt sind. 
+    </p>
+    <p>
+        Aus dem Diagramm lässt sich erkennen, wie die verschiedenen Entitäten vernetzt sind und wie sie sich aus welchen Atrributen mit entsprechenden Datentypen 
+        zusammen setzen. Für Vorschaubilder wurde eine separate Tabelle angelegt, obwohl eine 1-zu-1-Beziehung zu den Artikeln besteht. 
+        Hierfür entschieden wir uns, damit die Bildpfade alle in der Image Tabelle gesammelt werden. Wäre das Vorschaubild in die 
+        Artikelattribute eingearbeitet, müsste man die Dateipfade von Artikelbildern an zwei unterschiedlichen Stellen auslesen, daher befanden wir es 
+        für die Einheitlichkeit besser, sie ebenfalls in der Image Tabelle abzulegen und durch Einträge in Preview Image als Vorschau zu markieren.
+    </p>
+    <img src="/images/documentation/01-18_database-chart.png" alt="Datenbankdiagramm vom 18.01." width="1000px" height="auto">
+    
+    <h3>Model und Controller</h3>
+    <p>
+        Für jede Entität im Datenbankkonzept wurde ein gleichnamiges Model angelegt, dass den Zugriff auf die jeweilige Tabelle übernimmt. Dafür 
+        gibt es eine Ausnahme: Die Tabelle "Item Preview Image" hat kein eigenes Model und wird zusätzlich im "Item" Model behandelt. Diese 
+        Handhabung haben wir so eingeführt, da so ein Vorschaubild immer eindeutig zu einem Artikel zugeordnet werden kann und Vorschaubilder auch 
+        zu keinem Zeitpunkt unabhängig von Artikeln betrachtet werden. 
+    </p>
+    <p>
+        Bei den Controllern wird die Aufteilung dann von Datenbanktabellen auf Unterseiten umgestellt. Diese Aufteilung erschien uns zielführender, 
+        weil einige Funktionen und Aktionen sich nicht eindeutig zu einer bestimmten Tabelle zuordnen lassen und bei der Verarbeitung unterschiedliche 
+        Datentypen für die Anzeige zusammen kommen. Besonders schwierig wäre auch das Einordnen von Funktionen wie zb. der Anzeige der Kontaktseite, 
+        da diese keinerlei Interaktion mit der Datenbank aufweist. 
+    </p>
+    
+    <h3>Routing</h3>
+    <p>
+        Die Routen sind in die 6 verschiedenen Bereiche der Website unterteilt: Index (/), Produkte (/products), Kontakt (/contact), Nutzer (/users), 
+        Login (/login, /logout), Datenschutz (/imprint, /privacy). Innerhalb dieser Bereiche sind die Routen immer gleich aufgebaut. 
+        Im Folgenden sind die Strukturen der Routen kurz aufgezeigt, dabei sind ggf. auch Routen-Schemata dargestellt, die bei dieser Anwendung 
+        aktuell noch nicht auftauchen, wurden aber zum besseren Verständnis des Systems trotzdem aufgeführt. 
+        <div class="block">
+            <h4>Hauptinhalte</h4>
+            <p>/topic</p>
+            <p>
+                Unter den Hauptseiten gibt es eine Ausnahme, die News-Seite. Diese ist ohne Benennung vermerkt, weil sie auf der Startseite 
+                angesiedelt ist und daher als weit verbreitete Webkonvention nur mit / zu erreichen ist. 
+            </p>
+            <ul>
+                <li>
+                    /
+                </li>
+                <li>
+                    /products
+                </li>
+                <li>
+                    /contact
+                </li>
+                <li>
+                    /users
+                </li>
+                <li>
+                    /login
+                </li>
+                <li>
+                    /logout
+                </li>
+                <li>
+                    /imprint
+                </li>
+                <li>
+                    /privacy
+                </li>
+            </ul>
+        </div>
+        <div class="block">
+            <h4>Unterkategorien</h4>
+            <p>/topic/subtopic</p>
+            <ul>
+                <li>
+                    get /products/categories
+                </li>
+            </ul>
+        </div>
+        <div class="block">
+            <h4>Detailansicht</h4>
+            <p>/topic/id – /topic/subtopic/id</p>
+            <ul>
+                <li>
+                    /products/:id
+                </li>
+            </ul>
+        </div>
+        <div class="block">
+            <h4>Aktionen</h4>
+            <p>/topic/action/id – /topic/subtopic/action/id – /topic/id/action/type/id</p>
+            <p>
+                Besonders bei den Aktionen auf Detailseiten fällt auf, dass die ID von dem zu löschenden Objekt hinter der Aktion im Pfad steht. 
+                Der Abschnitt "type" bezieht sich auf die Art von Objekt, was hier im Fokus steht, also aus den folgenden Beispielen 
+                Bilder und Kommentare. 
+            </p>
+            <ul>
+                <li>
+                    /delete/:id
+                </li>
+                <li>
+                    /products/categories/delete/:id
+                </li>
+                <li>
+                    /products/edit/:id
+                </li>
+                <li>
+                    /products/:id/delete/image/:image
+                </li>
+                <li>
+                    /products/delete/:id
+                </li>
+                <li>
+                    /products/:id/delete/comment/:comment
+                </li>
+                <li>
+                    /users/delete/:id
+                </li>
+            </ul>
+        </p>
+    </div>
+    
+    <h3>Module</h3>
+    <p>
+        Abgesehen von den NPM Modulen, die in der Vorlesung bzw. den Laboren vorgestellt wurden, wurden in diesem Projekt folgende 
+        Module verwendet:
+    </p>
+    <ul>
+        <li>
+            <strong>Sass</strong> – für das Konvertieren von SCSS zu CSS
+        </li>
+        <li>
+            <strong>Typecript</strong> – für verbesserte TS Checks von Typannotationen
+        </li>
+        <li>
+            <strong>SQL template strings</strong> – für die Nutzung von Template String bei SQL Kommandos
+        </li>
+        <li>
+            <strong>UUID</strong> – für das Generieren von UUIDs (eingesetzt bei der Bildbenennung)
+        </li>
+        <li>
+            <strong>Eslint</strong> – für höhere Code Qualität, besonders hilfreich beim Identifizieren von fehlenden 'await's
+        </li>
+        <li>
+            <strong>Debug</strong> - für das Logging
+        </li>
+    </ul>
+</div>
+    
+    
+  
+<div>
+    <h2>Problembehandlung</h2>
+    <h3>BLOBs</h3>
+    <p>
+        Aus den ersten Datenbankdiagrammen im Projekttagebuch lässt sich erkennen, dass Bilder zunächst als BLOBs geplant und auch umgesetzt waren. Das 
+        Auslesen aus der Datenbank sah wie folgt aus:
+    </p>
+    <p>
+        function convertImageForDisplay(item) {
+            return {
+                ...item,
+                image: `data:image/*;base64,${item?.image .toString("base64")}`
+            };
+        }
+    </p>
+    <p>
+        Die Anzeige von Bilder war zwar erfolgreich, hat aber für wenige Testbilder schon annähernd eine Minute gedauert. In der Voraussicht, dass die 
+        Menge an Produkten nach Inbetriebnahme der Website noch wesentlich ansteigen wird, war eine solche Ladezeit daher inakzeptabel, daher wurde 
+        die Anwendung komplett auf das Ablegen und Auslesen von Dateien abgeändert. Bilder werden beim Hochladen durchnummeriert und mit Dateipfad in 
+        entsprechend nach Artikel bzw. später auch Post ID sortierten Verzeichnisen abgelegt und können von dort wieder abgerufen werden. 
+    </p>
+    <h3>Bildbenennung</h3>
+    <p>
+        Die Benennung der abgelegten Bilder wird Laufe des Projekte mehrmals abgeändert. Zunächst wurden Bilder beim Einlesen nummeriert und dann mit 
+        ganzem Pfad abgespeichert. Das Auslesen das ganzen Pfades führte zu Problemen bei der Anzeige, da die Pfade für das Ablegen und Auslesen der 
+        Bilder nicht identisch sind. Deswegen wurde eine Umstellung von kompletten Dateipfaden auf lediglich den Dateinamen der Bilder. So können die 
+        Bilder anschließend unabhängig im Verzeichnis ausgelesen werden.
+    </p>
+    <p>
+        Beim Etablieren der Bearbeitung von Artikel trat allerdings erneut ein Problem mit der Benennung auf. Da die Bearbeitung von Artikeln 
+        ermöglicht, dass Bilder nachträglich noch entfernt oder neue Bilder hinzugefügt werden können, wird die Nummerierung "löchrig" bzw. wird es wird 
+        unklar, wo neue Bilder eingefügt werden sollen. Da ein nachträgliches Anpassen der Abfolge umständlich und kompliziert ist, wurde die Benennung 
+        an dieser Stelle nochmals verändert. Bilder werden jetzt mit UUID benannt, sodass sie eindeutig sind ohne von einer Reihenfolge abhängig 
+        zu sein. So können Bilder problemlos entfernt und hinzugefügt werden.
+    </p>
+    <h3>Nutzerverwaltung</h3>
+    <p>
+        Ein auftretendes Problem war außerdem die Frage, wie man mit Nutzern umgeht, die zu dem Zeitpunkt, an dem sie aus dem System entfernt werden, 
+        bereits Posts oder Kommentare verfasst haben. Man könnte definitiv alle zusammenhängenden Daten löschen, das wäre allerdings schade, da Daten 
+        dann verloren gehen, die Timeline Lücken aufweist und man alte Posts nicht mehr zurück verfolgen kann. Daher wird beim Löschen geprüft,
+        ob der Nutzer bereits Publikation veröffentlicht hat und wird dementsprechend entweder einfach gelöscht oder archiviert. 
+    </p>
+    <p>
+        Im Endstatium der Backendprgrammierung fiel auf, dass es eingeloggten Admins möglich ist, den eigenen Account zu löschen. Dies wurde beim 
+        Testen der Seite nie versucht, daher ist dieses Problem erst recht spät aufgefallen. Durch Abgleichen der Session-Daten, ggf. Ausloggen 
+        des aktuellen Nutzers vor dem Löschen könnte diese Funktion theoretisch etabliert werden, sodass keine Fehler auftreten, nach genauerer 
+        Betrachtung haben wir uns allerdings dagegen entschieden. Bei unserer Anwendung handelt es sich um eine Verwaltung von innen, d.h. alle 
+        Accounts müssen von einem Admin angelegt werden. Eine Registrierung von außen ist nicht möglich. Wenn es besagten Admins also möglich ist, 
+        eigene Accounts zu entfernen, könnte man in eine Situation kommen, wo keine Admins bzw. auch gar keine Accounts mehr reigstriert sind. Das 
+        System wäre dann von außen unzugänglich. Um dies zu vermeiden wurde die Funktion, den eigenen Account zu löschen, entfernt.
+    </p>
+</div>
+    
+    
+
+<div>
+    <h2>Aufgabenteilung</h2>
+    <p>
+        Grundsätzlich wurden alle Inhalte gemeinsam bearbeitet, besonders bei der Konzeption der Seite, als auch dem Aufstellen und Bearbeiten 
+        der Datenbank. Meistens arbeiteten wir auch in Live-Share Sessions zur gleichen Zeit am Projekt. 
+        Wir haben versucht, die Aufgaben in allgemeine Bereiche aufzuteilen, d.h. Luka hat vor allem die Handhabung von Posts und Artikeln und Leonie 
+        die Userverwaltung und Login etabliert. Dabei wurde aber oft auch zusammen an Problemen gearbeitet, wie z.B. der Dateiupload und das Ablegen 
+        von Bildern. Da wir zusammen wohnen, war ein Treffen immer einfach, weswegen die Grenzen in der Aufgabenteilung etwas verschwimmen. 
+        Das HTML wurde von jedem selbst in Abhängigkeit von den Conrtollern geschrieben, wenn eine bestimmte Seite gebraucht wurde, z.B. 
+        die Login Seite zum Testen der Funktionalität von Sessions. 
+    </p>
+</div>
+    
+    {% endblock %}

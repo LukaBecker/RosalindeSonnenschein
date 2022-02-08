@@ -1,0 +1,110 @@
+{% extends 'layout.html' %}
+{% set mainClass = "modules" %}
+{% block content %}
+
+<h1>Module</h1>
+
+<div class="fonts">
+    <h2>Schriften</h2>
+    <h1>Main Headline</h1>
+    <h2>Headline</h2>
+    <h3>Sub Headline</h3>
+    <p>
+        Fließtext – Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna 
+        aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata 
+        sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt 
+        ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd 
+        gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    </p>
+</div>
+
+<div class="colours">
+    <h2>Farben</h2>
+    <ul>
+        <li>
+            <h3>White</h3>
+            <div class="white"></div>
+        </li>
+        <li>
+            <h3>Ash</h3>
+            <div class="ash"></div>
+        </li>
+        <li>
+            <h3>Black</h3>
+            <div class="black"></div>
+        </li>
+        <li>
+            <h3>Orange</h3>
+            <div class="orange"></div>
+        </li>
+        <li>
+            <h3>Moss</h3>
+            <div class="moss"></div>
+        </li>
+    </ul>
+</div>    
+
+<div class="design-elements">
+    <h2>Designelemente</h2> <!-- ggf noch Footer mit Ranken -->
+    <img src="/images/layout/flower.png" alt="Sonnenblume">
+    <div>
+        <img src="/images/layout/twig-left.png" alt="Zweig">
+        <img src="/images/layout/twig-right.png" alt="Zweig">
+    </div>
+    <ul>
+        <li><div></div></li>
+        <li><div></div></li>
+        <li><div></div></li>
+    </ul>
+    <img src="/images/layout/vine.svg">
+</div>
+
+<div class="form">    
+    <h2>Formular</h2>
+    <form>
+        <label class="small">
+            Titel
+            <input name="title" type="text" id="title" maxlength="100"></input>
+        </label>
+        <label class="textarea">
+            Inhalt
+            <textarea name="content" rows="5" placeholder="Was gibt es Neues über Rosalinde Sonnenschein?"></textarea>
+        </label>
+    </form>
+</div>
+    
+<div class="links">
+    <h2>Links und Buttons</h2>
+    <a>Link</a>
+    <div class="footer">
+        <a>Footer Link</a>
+    </div>
+    <button class="btn">Button</button>
+</div>
+    
+<div class="icons">
+    <h2>Icons</h2>
+    <ul>
+        <li>
+            <h3>Neues</h3>
+            <img src="/images/icons/news.svg" alt="Neues Icon">
+        </li>
+        <li>
+            <h3>Produkte</h3>
+            <img src="/images/icons/products.svg" alt="Produkte Icon">
+        </li>
+        <li>
+            <h3>Über Uns</h3>
+            <img src="/images/icons/about-us.svg" alt="Über Uns Icon">
+        </li>
+        <li>
+            <h3>Kontakt</h3>
+            <img src="/images/icons/contact.svg" alt="Kontakt Icon">
+        </li>
+        <li>
+            <h3>Konten</h3>
+            <img src="/images/icons/user.svg" alt="Konten Icon">
+        </li>
+    </ul>
+</div>
+{% endblock %}

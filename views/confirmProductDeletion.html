@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+{% set mainClass = "confirmation" %}
+{% block content %}
+<p>Soll der Artikel '{{ product.title }}' wirklich gelöscht werden?</p>
+<form method="post">
+    <input class="btn" type="submit" value="Löschen">
+</form>
+<a href="/products">Abbrechen</a>
+{% endblock %}

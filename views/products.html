@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+{% set mainClass = "products" %}
+{% block content %}
+{% if isModerator %}
+<form method="POST" enctype="multipart/form-data">
+    <label>
+        Titel
+        <input name="title" type="text" id="title" value="{{ entry.title }}" maxlength="50" required>
+    </label>
+    {% if errors.title %}<p>{{ errors.title }}</p>{% endif %}
+    <label>
+        Art
+        <select name="type" id="type">
+            {% for category in categories %}
+                <option value="{{ category.id }}">{{ category.title }}</option>
+            {% endfor %}
+        </select>
+    </label>
+    <label class="small">
+        Preis
+        <input name="price" type="text" id="price" value="{{ entry.price }}" maxlength="8" required>
+    </label>
+    {% if errors.price %}<p class="small">{{ errors.price }}</p>{% endif %}
+    <label class="small">
+        Grösse
+        <input name="size" type="text" id="size" value="{{ entry.size }}" maxlength="8">
+    </label>
+    {% if errors.size %}<p class="small">{{ errors.size }}</p>{% endif %}
+    <label>
+        Vorschau
+        <input class="imageUpload" id="previewImage" type="file" name="previewImage" accept="image/*" required>
+    </label>
+    {% if errors.preview %}<p>{{ errors.preview }}</p>{% endif %}
+    <label>
+        Bilder
+        <input class="imageUpload" id="additionalImages" type="file" name="additionalImages" accept="image/*" multiple>
+    </label>
+    <input name="csrf" type="hidden" id="csrf" value="{{ entry.csrf }}" required></input>
+    <button class="btn" type="submit">Hinzufügen</button>
+</form>
+{% endif %}
+<div class="categories">
+    <ul>
+        {% for category in categories %}
+        <li>
+            <a href="/products?category={{ category.id }}">{{ category.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% if isModerator %}
+    <a class="btn" href="/products/categories">Bearbeiten</a>
+    {% endif %}
+</div>
+
+<ul class="items">
+    {% for product in products %}
+    <li>
+        <a class="preview" href="/products/{{ product.id }}">
+        <h2>{{ product.title }}</h2>
+        <div class="image-wrapper">
+            <img src="{{ product.preview }}" alt="{{ product.title }}">
+        </div>
+        </a> 
+        <p>{% if product.size %}{{ product.size }}, {% endif %}{{ product.price }}€</p>
+        {% if isModerator %}
+            <a href="/products/edit/{{ product.id }}"><img src="/images/icons/edit.svg" alt="Bearbeiten"></a>
+            <a href="/products/delete/{{ product.id }}"><img src="/images/icons/delete.svg" alt="Löschen"></a>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

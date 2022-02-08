@@ -1,0 +1,320 @@
+{% extends 'layout.html' %} 
+{% set mainClass = "timeline" %}
+{% block content %}
+
+<h1>Projekttagebuch</h1>
+<ul>
+    <li>
+        <h2>Informationsstruktur und Datenbank</h2>
+        <p>
+            Als Einstieg in das Projekt werden zunächst mithilfe der gewünschten Funktionen eine Informationsarchitektur aufgestellt, um herauszufinden, 
+            welche Inhaltstypen benötigt werden.
+        </p>
+        <img src="/images/documentation/information-architecture.png" alt="Informationsarchitektur" width="1000px" height="auto">
+        <p>
+            Anhand der geplanten Struktur werden die Inhalte dann in Typen sortiert und daraus ein Datenbankdiagramm erarbeitet. Der Aufbau der Datenbank 
+            ändert sich im Laufe dieses Projektes. Im Folgenden ist zunächst die erste Version illustriert. Nachdem die Konzeption der Datenbank abgeschlossen 
+            ist, wird sie als SQLite Datei angelegt. 
+        </p>
+        <img src="/images/documentation/01-09_database-chart.png" alt="Datenbankdiagramm vom 09.01." width="1000px" height="auto">
+        <p>09. Januar</p>
+    </li>
+    <li>
+        <h2>Model</h2>
+        <p>
+            Im Anschluss an das Erstellen der Datenbank, werden die Models angelegt - je ein Model für jede Entität, sodass insgesamt 6 Models entstehen. 
+            In den Models wird auch jeweils mit Typdefinitionen gearbeitet, um die in der Datenbank abgelegten Objekte mit ihren Attributen zu beschreiben.
+        </p>
+        <p>10. Januar</p>
+    </li>
+    <li>
+        <h2>Datenbankkonzept und Routing</h2>
+        <p>
+            Kurz nach Beginn wurde das Datenbankkonzept das erste Mal überarbeitet. Nach genauerer Betrachtung ist unklar, welche Inhalte über News und welche 
+            über Announcements abgehandelt werden würden. Die Entität Announcements, die ursprünglich als Banner-Element geplant war, wird entfernt. Da sich beim 
+            Programmieren allerdings rausstellte, dass "Announcement" als Typname einfacher zu handhaben ist, da es einen regulären Singular/Plural gibt, wird 
+            hier die Benennung ausgetauscht. Statt einen eigenen Typen für Bild-Elemente zu haben, werden außerdem optionale Bilder in die Announcements 
+            integriert.
+        </p>
+        <img src="/images/documentation/01-13_database-chart.png" alt="Datenbankdiagramm vom 13.01." width="1000px" height="auto">
+        <p>
+            Es werden außerdem zum Testen der Anzeige von Inhalten erste Routen verknüpft.
+        </p>
+        <p>13. Januar</p>
+    </li>
+    <li>
+        <h2>Inhaltsazeige von Beispieldaten</h2>
+        <p>
+            Die Inhaltsanzeige von Index, Produkte und Kontakt wurd mittels Dummy-Daten, die direkt in die Datenbank eingetragen wurden, vervollständigt. Das 
+            Navigieren zwischen den Hauptseiten ist bereits möglich.
+        </p>
+        <p>14. Januar</p>
+    </li>
+    <li>
+        <h2>Post-Formulare</h2>
+        <p>
+            Es werden Formulare zum Hinzufügen von Posts implementiert, zu diesem Zeitpunkt noch ohne Bilder und (da der Login noch nicht funktional ist) auch 
+            ohne Autor. Die Eingabe von neuen Posts und das Löschen von bestehenden Posts ist über das Interface möglich. 
+        </p>
+        <p>15. Januar</p>
+    </li>
+    <li>
+        <h2>Produkt-Formulare</h2>
+        <p>
+            Das Hinzufügen und Löschen von Artikeln ist über das Interface möglich, hier auch wieder zunächst ohne Bildelemente. Das Anzeigen von Produkten ohne 
+            Bild führt allerdings zu Fehlermeldungen, das heißt Produkte werden zwar erfolgreich in die Datenbank eingetragen, können aber zunächst noch nicht 
+            fehlerfrei ausgelesen werden.
+        </p>
+        <p>
+            Nach Integrieren eines Bilduploads für Produktbilder funktioniert auch die Anzeige wieder problemlos, das Auslesen von BLOBs dauert allerdings sehr lange. 
+            Da später noch viele Produkte mehr hochgeladen werden sollten, als beim Testen in der Datenbank angelegt sind, muss hier ein anderer Lösungsweg 
+            gesucht werden.
+        </p>
+        <p>16. Januar</p>
+    </li>
+    <li>
+        <h2>Bildmanagement und Datenbankkonzept</h2>
+        <p>
+            Das Datenbankkonzept wird erneut verändert, um ein Produkt auch mit mehreren Bildern darstellen zu können. Dafür werden zwei neue Tabellen mit 
+            Produktbildern angelegt. Da das Auslesen von Bildern aus der Datenbank als BLOBs sehr zeitintensiv ist, sollen Bilder jetzt stattdessen im 
+            Ordnerverzeichnis abgelegt und mit Dateipfad in der Datenbank abgespeichert werden. Die zweite Tabelle markiert hierbei pro Produkt je ein 
+            Vorschaubild, mit welchem der Artikel in der Liste angezeigt werden soll. 
+        </p>
+        <p>
+            Es wurde außerdem eine weitere Tabelle hinzugefügt, in der verschiedene Rollen registriert werden würden, die später unterschiedliche Zugriffsrechte 
+            haben sollten. 
+        </p>
+        <img src="/images/documentation/01-18_database-chart.png" alt="Datenbankdiagramm vom 18.01." width="1000px" height="auto">
+        <p>18. Januar</p>
+    </li>
+    <li>
+        <h2>Bildmanagement</h2>
+        <p>
+            Umstellung der Bildverarbeitung von BLOBs auf das Ablegen im Ordnerverzeichnis und Abspeichern der Dateipfade. Dabei wurden die Bilder durchnummeriert 
+            und unter web/images/products in Ordnern nach Produkt sortiert. Beim Upload werden Vorschaubilder in einem sepratem Feld hochgeladen, um sie beim 
+            Ablegen in der Datenbank eindeutig unterscheiden zu können. 
+        </p>
+        <p>19. Januar</p>
+    </li>
+    <li>
+        <h2>Bearbeitung von Produkten</h2>
+        <p>
+            Nachträgliches Bearbeiten von Artikeln ist über das Interface verfügbar, sodass alle Inhalte inkl. Bilder noch ausgetauscht werden können. Das Entfernen 
+            von zusätzlichen Bildern im Formular erfolgt hierbei direkt und nicht erst nach Bestätigung. Alle anderen Änderungen können durch Verlassen der Seite 
+            abgebrochen werden.
+        </p>
+        <p>21. Januar</p>
+    </li>
+    <li>
+        <h2>Bildbenennung</h2>
+        <p>
+            Umstellung der Bildbenennung von Nummerierung auf UUID. Beim Etablieren der Bearbeitung trat das Problem auf, dass die Nummerierung der Bilder 
+            durch nachträgliches Entfernen löchrig wird und das Ablegen von zusätzlichen Bildern dadurch erschwert. Um die Handhabung der Bilder zu 
+            vereinfachen werden die Bilder daher stattdessenmit UUID benannt, sodass keine direkt zu beachtende Reihenfolge mehr vorliegt. 
+        </p>
+        <p>22. Januar</p>
+    </li>
+    <li>
+        <h2>Userverwaltung</h2>
+        <p>
+            Verwaltung von aktiven Usern kann über die Top Nav aufgerufen werden. User können hinzugefügt oder entfernt werden. Die Userverwaltung ist so geplant, 
+            dass sie später nur von Usern mit Adminrechten einsehbar ist, da es nicht um eine Social Media Seite o.Ä. geht, wo eine Registrierung für jeden 
+            möglich sein soll, sondern eine Verwaltung, die die Inhalte für Kunden in Stand hält. 
+        </p>
+        <p>23. Januar</p>
+    </li>
+    <li>
+        <h2>Kommentare</h2>
+        <p>
+            Auf der Detailseite werden Kommentare eingebunden, die dort verfasst werden können. Bis zu diesem Zeitpunk können Kommentare nur anonym 
+            verfasst werden, weil noch keine Login-Funktion integiert ist, d.h. User können noch nicht aus der Session ausgelesen und als Autor eingetragen 
+            werden.
+        </p>
+        <p>24. Januar</p>
+    </li>
+    <li>
+        <h2>Farbauswahl</h2>
+        <p>
+            Es werden verschiedene Farbkombinationen zusammengestellt und ausprobiert. Die Favoriten werden später in Styletiles weiter thematisiert.
+        </p>
+        <div class="colours">
+            <img src="/images/documentation/colours/01.png" alt="Farbpalette 01">
+            <img src="/images/documentation/colours/02.png" alt="Farbpalette 02">
+            <img src="/images/documentation/colours/03.png" alt="Farbpalette 03">
+            <img src="/images/documentation/colours/04.png" alt="Farbpalette 04">
+            <img src="/images/documentation/colours/05.png" alt="Farbpalette 05">
+            <img src="/images/documentation/colours/06.png" alt="Farbpalette 06">
+        </div>
+        <p>25. Januar</p>
+    </li>
+    <li>
+        <h2>Darstellung</h2>
+        <p>
+            Posts können mit Bild hochgeladen und dargestellt werden. Das Verfassungsdatum wird bei Posts und Kommentaren jeweils entsprechend formatiert 
+            und mit ausgegeben. An der Stelle ist außerdem aufgefallen, dass die Datenbank beim Entfernen von Inhalten nicht über die Fremdschlüssel 
+            verbundene Inhalte ebenfalls entfernt. Das Problem wird gelöst, indem man einen Befehl in app.js einbindet, der die Datenbank informiert, auf 
+            Fremdschlüssel zu achten. 
+        </p>
+        <p>26. Januar</p>
+    </li>
+    <li>
+        <h2>Styletiles</h2>
+        <p>
+            Die Konzeption der Styletiles beginnt. Die Styltiles werden im Laufe der folgenden Tage noch weiter verfeinert und ausgearbeitet, bevor eine 
+            Entscheidung getroffen und an den Mock Ups gearbeitet wird. 
+        </p>
+        <p>27. Januar</p>
+    </li>
+    <li>
+        <h2>Validierung</h2>
+        <p>
+            Anzeige wird in Renderfunktionen ausgelagert, um bei Fehlerauftreten in der Validierung die Anzeige unkompliziert mit Fehlerausgabe neu zu rendern. Es 
+            wurden Eingabeüberprüfungen für alle Formulare hinzugefügt. 
+        </p>
+        <p>30. Januar</p>
+    </li>
+    <li>
+        <h2>Login</h2>
+        <p>
+            Anlegen von Controllern für Login, Logout und Authentifizierung für verschiedene Rollen. Außerdem werden in app.js Funktionen als Middleware eingebunden, 
+            die den angemeldeten User aus der Session ausliest und in den State einträgt. Dort werden außerdem Booleans für die Anzeigeeinschränkungen generiert. 
+            Rollenabfragen könnten im HTML auch über das Rollen-Attribut des Users erfolgen, aber isAdmin, isModerator und isPublisher sind einfacher im 
+            Kontext zu verstehen, daher wird hier dieser extra Schritt gegangen.
+        </p>
+        <p>31. Januar</p>
+    </li>
+    <li>
+        <h2>Authentifizierung</h2>
+        <p>
+            Die User erhalten jetzt beim Hinzufügen eine Rolle. Das Model für die Rollen und das HTML für die Login-Seite wird hinzugefügt und 
+            die nötigen Routen angelegt. Die Middleware zur Authentifizierung wird in den Router an entsprechenden Stellen eingefügt. Außerdem werden 
+            eingeloggte Nutzer jetzt aus der Session als Autor von verfassten Posts und Kommentare abgespeichert und auch als solche angezeigt.
+        </p>
+        <p>01. Februar</p>
+    </li>
+    <li>
+        <h2>Anzeige, Kontakt und Mock Ups</h2>
+        <p>
+            Anpassungen im HTML, sodass die verschiedenen Rollen nur Felder angezeigt bekommen, die ihnen auch zur Benutzung zustehen. Es wurden Flash-Nachrichten 
+            für das Hinzufügen, Bearbeiten und Löschen von Artikeln hinzugefügt.Es wurde außerdem ein Kontaktformular für weitere Fragen hinzugefügt. Die Daten 
+            aus dem Formular werden an das Echo Script der Hochschule gesendet. Parallel wird an den Mock Ups und Entwürfen für die Darstellung gearbeitet.
+        </p>
+        <p>02. Februar</p>
+    </li>
+    <li>
+        <h2>Feinschliff</h2>
+        <p>
+            Es werden einzelne Anzeigefehler behoben und Lücken an der Validierung geschlossen. Das Löschen vom eigenen Account wird anhand der Info über den 
+            in die Session eingetragenen User blockiert. Da das System von außen geschlossen ist und man nur Accounts hinzufügen kann, solange es mindestens 
+            einen Admin gibt, muss garantiert sein, dass es auch immer mindestens einen Admin gibt.
+        </p>
+        <p>
+            Abgesehen davon werden außerdem auch die Mockups vervollständigt, sodass als nächstes am Frontend gearbeitet werden kann.
+        </p>
+        <div class="drafts">
+            <img class="mobile" src="/images/documentation/drafts/mobile-news.png" alt="Mobil Neues">
+            <img src="/images/documentation/drafts/desktop-news.png" alt="Desktop Neues">
+            <img src="/images/documentation/drafts/desktop-login.png" alt="Desktop Login">
+        </div>
+        <p>04. Februar</p>
+    </li>
+    <li>
+        <h2>Dokumentation und CSS Setup</h2>
+        <p>
+            Die Dokumentation für WWW wird geschrieben. Das CSS Setup wird gemacht, d.h. die vorgesehenen Schriften werden eingebunden, es werden Variablen für 
+            Farben und Standardwerte angelegt und Basiselemente wie Überschriften, Buttons, Links und Listen werden gestaltet. 
+        </p>
+        <img src="/images/documentation/02-05_setup.png" alt="CSS Setup">
+        <p>05. Februar</p>
+    </li>
+    <li>
+        <h2>Layout und Icons</h2>
+        <p>
+            Bei der Gestaltung fangen wir bei  Layout.html, also dem Rahmen der Seite, an. Für die Darstellung der Navigation auf kleinen Screengrößen werden 
+            Icons angelegt, die wir selbst in Illustratrator erstellen. Header sowie Footer werden bei 320px angesetzt und gestaltet. Die weiteren Seiten 
+            werden auf mobile Größe angefangen.
+        </p>
+        <div class="icons">
+            <img src="/images/icons/news.svg" alt="Neues Icon">
+            <img src="/images/icons/products.svg" alt="Produkte Icon">
+            <img src="/images/icons/about-us.svg" alt="Über Uns Icon">
+            <img src="/images/icons/contact.svg" alt="Kontakt Icon">
+            <img src="/images/icons/user.svg" alt="Nutzer Icon">
+            <img src="/images/icons/edit.svg" alt="Bearbeiten Icon">
+            <img src="/images/icons/delete.svg" alt="Löschen Icon">
+            <img src="/images/icons/remove.svg" alt="Entfernen Icon">
+        </div>
+        <p>06. Februar</p>
+    </li>
+    <li>
+        <h2>Mobile</h2>
+        <p>
+            Die Mobile Größen werden fertig gestaltet.
+        </p>
+        <p>07. Februar</p>
+    </li>
+    <li>
+        <h2>Media Queries</h2>
+        <p>
+            Mittels Media Queries wird die Website für größere Bildschirme gestaltet. Außerdem fügen wir eine Über Uns Seite hinzu, auf der über die Geschichte 
+            und das Team von Rosalinde Sonnenschein erzählt wird. 
+        </p>
+        <p>08. Februar</p>
+    </li>
+    <li>
+        <h2>Module und Contrast Grid</h2>
+        <p>
+            Die verschiedenen Designelemente werden in der Modulseite integriert und dargestellt. Außerdem wird ein Contrast Grid angelegt. Hierbei werden nicht 
+            nur die Farben, die in der Gestaltung auftauchen aufgelistet, sondern zusätzlich auch die Farben die sonst noch im Logo auftauchen.
+            Als Schmuckelement wird außerdem eine Ranke, ähnlich wie sie im Logo auftaucht, an den Footer angebunden. Dies wird ebenfalls bei den Modulen aufgenommen.
+        </p>
+        <p>09. Februar</p>
+    </li>
+    <li>
+        <h2>Beispieldaten</h2>
+        <p>
+            Es werden Beispieldaten als Produkte über das Interface hinzugefügt. Hierfür werden Bilder von Unsplash verwendet. Außerdem passen wir die Schriftgröße 
+            von 12px auf 16px an und nehmen vereinzelte Veränderungen am Layout vor, wo es durch die größere Schrift nötig ist. 
+        </p>
+        <img src="/images/documentation/02-10_dummies.png" alt="Beispieldaten">
+        <p>10. Februar</p>
+    </li>
+    <li>
+        <h2>Dokumentation</h2>
+        <p>
+            Die Dokumentation für Frontend wird geschrieben. Es werden auch Ausschnitte aus den von uns angelgeten Entwürfen beigefügt. 
+        </p>
+        <p>11. Februar</p>
+    </li>
+    <li>
+        <h2>Impressum und Datenschutz</h2>
+        <p>
+            Es werden Seiten für Impressum und Datenschutz angelegt und die entsprechenden Routen hinzugefügt. Außerdem stylen wir die Dokumentationen sowie die neue 
+            Impressums und Datenschutzseite.
+        </p>
+        <p>12. Februar</p>
+    </li>
+    <li>
+        <h2>CSRF Token und Logging</h2>
+        <p>
+            Es werden CSRF Token für erhöte Sicherheit in alle Formulare mittels verstecktem input Feld hinzugefügt. Außerdem werden mit dem debug Modul Logs in allen 
+            Funktionen der Controller und Models ausgegeben. 
+        </p>
+        <p>13. Februar</p>
+    </li>
+    <li>
+        <h2>Feinschliff</h2>
+        <p>
+            Die Dokumentationen werden auf Fehler geprüft und ggf. abgeändert, vereinzelt werden noch Punkte hinzugefügt. Wenige Fehler im CSS werden noch behoben 
+            und ausgebessert. 
+        </p>
+        <p>14. Februar</p>
+    </li>
+    <li>Letzte Prüfung</li>
+    <p>
+        Die Funktionen der Seite werden nochmals von mehreren Personen auf Funktionalität getestet
+    </p>
+    <p>15. Februar</p>
+</ul>
+
+{% endblock %}

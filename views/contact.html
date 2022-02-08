@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% set mainClass = "contact" %}
+{% block content %}
+<h1>Kontakt</h1>
+<div>
+    <div>
+        <h2>Wann?</h2>
+        <p>
+            jeden Samstag, 10-13 Uhr<br>
+            oder Termin nach Absprache
+        </p>
+    </div>
+    <div>
+        <h2>Wo?</h2>
+        <p>
+            Römerstraße 2<br>
+            Eingang gegenüber vom Piano
+        </p>
+    </div>
+    <div>
+        <h2>Wer?</h2>
+        <p>
+            Christine Hehner-Marner<br>
+            +49 1517 2214067<br>
+            rosalinde.sonnenschein@gmx.de
+        </p>
+    </div>
+</div>
+
+<form action="http://www.inf.fh-flensburg.de/echo/" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+    <label class="small">
+        Name
+        <input name="name" type="text" id="name" value="" size="30" maxlength="200" required>
+    </label>
+    <label class="small">
+        E-Mail
+        <input name="mail" type="email" id="mail" value="" size="30" maxlength="200" required>
+    </label>
+    <label>
+        Anfrage
+        <textarea name="question" id="question" rows="5" placeholder="Hast du eine Frage oder willst einen Termin ausmachen?"></textarea>
+    </label>
+    <button class="btn" type="submit">Abschicken</button>
+</form>
+{% endblock %}

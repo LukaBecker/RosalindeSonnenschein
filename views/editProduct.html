@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+{% set mainClass = "edit" %}
+{% block content %}
+<form method="POST" enctype="multipart/form-data">
+    <label>
+        Titel
+        <input name="title" type="text" id="title" value="{{ entry.title }}" maxlength="100" required>
+    </label>
+    {% if errors.title %}<p>{{ errors.title }}</p>{% endif %}
+    <label>
+        Art
+        <select name="type" id="type">
+            {% for category in categories %}
+                <option value="{{ category.id }}" {% if category.id == product.type %}selected{% endif %}>{{ category.title }}</option>
+            {% endfor %}
+        </select>
+    </label>
+    <label class="small">
+        Preis
+        <input name="price" type="text" id="price" value="{{ entry.price }}" maxlength="8" required>
+    </label>
+    <label class="small">
+        Grösse
+        <input name="size" type="text" id="size" value="{{ entry.size }}" maxlength="8">
+    </label>
+    {% if errors.price %}<p>{{ errors.price }}</p>{% endif %}
+    {% if errors.size %}<p>{{ errors.size }}</p>{% endif %}
+    <label>
+        Vorschau
+        <input class="imageUpload" id="previewImage" type="file" name="previewImage" accept="image/*">
+    </label>
+    <img src="{{ preview.path }}" alt="{{ product.title }} preview">
+    {% if errors.preview %}<p>{{ errors.preview }}</p>{% endif %}
+    <label>
+        Bilder
+        <input class="imageUpload" id="additionalImages" type="file" name="additionalImages" accept="image/*" multiple>
+    </label>
+    <ul>
+    {% for image in images %}
+        <li>
+            <img src="{{ image.path }}" alt="{{ product.title }}">
+            <a href="/products/{{ product.id }}/delete/image/{{ image.id }}"><img src="/images/icons/remove.svg" alt="Entfernen"></a>
+        </li>
+        {% endfor %}
+    </ul>
+    <input name="csrf" type="hidden" id="csrf" value="{{ entry.csrf }}" required></input>
+    <button class="btn" type="submit">Aktualisieren</button>
+</form>
+<a href="/products">Abbrechen</a>
+{% endblock %}

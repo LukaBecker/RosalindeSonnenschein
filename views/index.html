@@ -1,0 +1,38 @@
+{% extends 'layout.html' %} 
+{% set mainClass = "index" %}
+{% block content %}
+{% if isPublisher %}
+<form method="post" enctype="multipart/form-data">
+    <label class="small">
+        Titel
+        <input name="title" type="text" id="title" value="{{ entry.title }}" maxlength="100" required></input>
+    </label>
+    {% if errors.title %}<p>{{ errors.title }}</p>{% endif %}
+    <label class="textarea">
+        Inhalt
+        <textarea name="content" rows="5" placeholder="Was gibt es Neues über Rosalinde Sonnenschein?">{{ entry.content }}</textarea>
+    </label>
+    {% if errors.content %}<p>{{ errors.content }}</p>{% endif %}
+    <label>
+        Bild
+        <input class="imageUpload" id="postImage" type="file" name="postImage" accept="image/*">
+    </label>
+    <input name="csrf" type="hidden" id="csrf" value="{{ entry.csrf }}" required></input>
+    <button type="submit" class="btn">Posten</button>
+</form>
+{% endif %}
+
+<ul>
+    {% for post in posts %}
+    <li>
+        <h2>{{ post.title }}</h2>
+        {% if post.image %}<img src="{{ post.image }}" alt="{{ post.title }}">{% endif %}
+        <p>{{ post.content }}</p>
+        <p>{{ post.displayAuthor }}, {{ post.displayDate }}</p>
+        {% if isPublisher %}
+        <a href="/delete/{{ post.id }}"><img src="/images/icons/delete.svg" alt="Löschen"></a>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

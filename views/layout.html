@@ -1,0 +1,71 @@
+<head>
+    <title>Rosalinde Sonnenschein</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <img class="sunflower" src="/images/layout/flower.png" alt="Sonnenblume">
+    <header>
+        <p class="name">Rosalinde Sonnenschein</p>
+        <nav>
+            <a href="/">
+                <img src="/images/icons/news.svg" alt="Neues Icon">
+                <span>Neues</span>
+            </a>
+            <a href="/products">
+                <img src="/images/icons/products.svg" alt="Produkte Icon">
+                <span>Produkte</span>
+            </a>
+            <a href="/about-us">
+                <img src="/images/icons/about-us.svg" alt="Über Uns Icon">
+                <span>Über Uns</span>
+            </a>
+            <a href="/contact">
+                <img src="/images/icons/contact.svg" alt="Kontakt Icon">
+                <span>Kontakt</span>
+            </a>
+            {% if isAdmin %}
+                <a href="/users">
+                    <img src="/images/icons/user.svg" alt="Konten Icon">
+                    <span>Konten</span>
+                </a>
+            {% endif %}
+        </nav>
+    </header>
+    {% if flash %}
+    <div class="flash">
+        <img src="/images/layout/twig-left.png" alt="Zweig">
+        <p>{{ flash }}</p>
+        <img src="/images/layout/twig-right.png" alt="Zweig">
+    </div>
+    {% endif %}
+    <main class="{{ mainClass }}">
+        {% block content %} {% endblock %}
+    </main>
+    <img class="vine" src="/images/layout/vine.svg" alt="Ranken">
+    <footer>
+        <div class="socials">
+            <a href="https://www.instagram.com/rosalinde_sonnenschein/">
+                <img src="/images/icons/instagram.svg" alt="Instagram">
+            </a>
+            <a href="https://www.facebook.com/Rosalinde-Sonnenschein-Mode-und-Schnickschnack-103492801446013">
+                <img src="/images/icons/facebook.svg" alt="Facebook">
+            </a>
+        </div>
+        <div class="login">
+            {% if isAuth %}
+            <p>Eingeloggt als: <span>{{ user.name }}</span></p>
+            <a href="/logout">Ausloggen</a>
+            {% else %}
+            <a href="/login">Einloggen</a>
+            {% endif %}
+        </div>
+        <a href="/imprint">Impressum</a>
+        <a href="/privacy">Datenschutz</a>
+        <a href="/documentation/timeline">Projekttagebuch</a>
+        <a href="/documentation/www">Dokumentation WWW</a>
+        <a href="/documentation/frontend">Dokumentation Frontend</a>
+        <a href="/documentation/modules">Module</a>
+        <a href="/documentation/colours">Farbkontraste</a>
+    </footer>
+</body>

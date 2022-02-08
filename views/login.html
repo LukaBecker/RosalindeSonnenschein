@@ -1,0 +1,17 @@
+{% extends 'layout.html' %} 
+{% set mainClass = "login" %}
+{% block content %}
+<form method="POST">
+    {% if errors.login %}<p>{{ errors.login }}</p>{% endif %}
+    <label>
+        Nutzername
+        <input name="username" type="text" id="username" value="{{ entry.username }}" maxlength="100" required>
+    </label>
+    <label>
+        Passwort
+        <input name="password" type="password" id="password" value="" maxlength="100" required>
+    </label>
+    <input name="csrf" type="hidden" id="csrf" value="{{ entry.csrf }}" required></input>
+    <button class="btn" type="submit">Einloggen</button>
+</form>
+{% endblock %}

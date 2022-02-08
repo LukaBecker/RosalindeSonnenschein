@@ -1,0 +1,21 @@
+{
+    "include": [
+        "**/*.js",
+        "**/*.d.ts"
+    ],
+    "compilerOptions": {
+        "allowJs": true,
+        "checkJs": true,
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "noEmit": true,
+        "strict": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "allowSyntheticDefaultImports": true,
+        "lib": [
+            "ES2020"
+        ]
+    }
+}

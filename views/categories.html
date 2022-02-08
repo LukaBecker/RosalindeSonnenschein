@@ -1,0 +1,21 @@
+{% extends 'layout.html' %} 
+{% set mainClass = "categories" %}
+{% block content %}
+<ul>
+    {% for category in categories %}
+        <li>
+            <h2>{{ category.title }}</h2>
+            <a href="/products/categories/delete/{{ category.id }}"><img src="/images/icons/remove.svg" alt="Löschen"></a>
+        </li>
+    {% endfor %}
+</ul>
+<form method="POST">
+    <label>
+        Titel
+        <input name="title" type="text" id="title" value="" maxlength="100" required>
+    </label>
+    {% if errors.title %}<p>{{ errors.title }}</p>{% endif %}
+    <input name="csrf" type="hidden" id="csrf" value="{{ entry.csrf }}" required></input>
+    <button class="btn" type="submit">Hinzufügen</button>
+</form>
+{% endblock %}

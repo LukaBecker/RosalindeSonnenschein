@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% set mainClass = "detail" %}
+{% block content %}
+<div class="item">
+    <h1>{{ product.title }}</h1>
+    <p>{% if product.size %}{{ product.size }}, {% endif %}{{ product.price }}€</p>
+    <div class="image-list-wrapper">
+        <ul class="image-list">
+            {% for image in images %}
+                <li>
+                    <img src="{{ image.path }}" alt="{{ product.title }}">
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% if isModerator %}
+    <a class="edit" href="/products/edit/{{ product.id}}"><img src="/images/icons/edit.svg" alt="Bearbeiten"></a>
+    <a class="delete" href="/products/delete/{{ product.id }}"><img src="/images/icons/delete.svg" alt="Löschen"></a>
+    {% endif %}
+</div>
+
+<div class="write-comment">
+    <h2>Kommentare</h2>
+    <form method="post">
+        <label>
+            <textarea name="content" rows="5" placeholder="Hast du Meinungen oder Fragen zu dem Produkt?" required></textarea>
+        </label>
+        <p>{{ errors.content }}</p>
+        <input name="csrf" type="hidden" id="csrf" value="{{ entry.csrf }}" required></input>
+        <button class="btn" type="submit">Posten</button>
+    </form>
+</div>
+    
+<ul>
+    {% for comment in comments %}
+    <li>
+        <p>{{ comment.content }}</p>
+        <p>{% if comment.author %}{{ comment.displayAuthor }}, {% endif %}{{ comment.displayDate }}</p>
+        {% if isPublisher %}
+            <a href="/products/{{ product.id }}/delete/comment/{{ comment.id }}"><img src="/images/icons/delete.svg" alt="Löschen"></a>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
